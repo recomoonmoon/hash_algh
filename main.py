@@ -1,16 +1,14 @@
-# This is a sample Python script.
+from collections import defaultdict
+def merge(nums1, nums2):
+    h1 = defaultdict(int)
+    h2 = defaultdict(int)
+    for i in nums1:
+        h1[i] += 1
+    for i in nums2:
+        h2[i] += 1
+    ans = []
+    for i in set(nums2):
+        ans+=[i]*min(h1[i], h2[i])
+    return ans
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+print(merge(nums1=[4,9,5], nums2=[9,4,9,8,4]))
